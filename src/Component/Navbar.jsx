@@ -6,7 +6,7 @@ import logo from '../assets/logo.png'
 import Image from './Image'
 import { CgProfile } from 'react-icons/cg'
 import { FaShoppingBag } from 'react-icons/fa'
-import banner from '../assets/banner.png'
+
 
 const Navbar = () => {
   return (

@@ -7,20 +7,27 @@ import card3 from '../assets/card3.png'
 import card4 from '../assets/card4.png'
 import card5 from '../assets/card5.png'
 import Container from '../Component/Container'
+import Heading from '../Component/Heading'
 
 const ExplorePart = () => {
     return (
 
         <section>
             <Container>
-                <Flex className='w-full h-auto gap-2 gap-x-2 gap-y-2 pb-[140px]'>
-                    <div className='w-1/2 h-[648px]'><Image src={card1} /></div>
-                    <Flex className='flex-wrap w-1/2 h-auto gap-x-2 gap-y-2'>
-                        <Image className='w-96% h-96% object-cover' src={card2} />
-                        <Image className='w-96% h-96% object-cover' src={card3} />
-                        <Image className='w-96% h-96% object-cover' src={card4} />
-                        <Image className='w-96% h-96% object-cover' src={card5} />
-                    </Flex>
+                <Heading text='Explore new and popular styles' className='text-center pb-[35px]'/>
+                <Flex className='gap-6 w-full pb-[140px]'>
+
+                    <div className='w-1/2'>
+                        <div className='w-[613px] h-[613px] bg-black50'><Image src={card1}/></div>
+                    </div>
+
+                    <div className='flex flex-wrap w-1/2 gap-6'>
+                        <div className='w-[294px] h-[294px] bg-black50'><Image src={card2}/></div>
+                         <div className='w-[294px] h-[294px] bg-black50'><Image src={card3}/></div>
+                         <div className='w-[294px] h-[294px] bg-black50'><Image src={card4}/></div>
+                         <div className='w-[294px] h-[294px] bg-black50'><Image src={card5}/></div>
+                    </div>
+
                 </Flex>
             </Container>
         </section>
