@@ -7,11 +7,16 @@
     --font-open: "Open Sans", sans-serif;
     --color-black50 : #D9D9D9;
       --bg-banner: url('/src/assets/Frame1.png');
+      --bg-banner2: url('/src/assets/Frame2.png');
     
     
 }
 
 .bg-banner {
+  background-image: var(--bg-banner); 
+  
+}
+.bg-banner2 {
   background-image: var(--bg-banner); 
   
 }
