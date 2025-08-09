@@ -5,7 +5,7 @@ import ExplorePart from '../Layout/ExplorePart'
 import Allproduct from '../Layout/Allproduct'
 import Image from '../Component/Image'
 import ZaraSection from '../assets/brand-banner.png'
-import BestSeller from '../Layout/BestSeller.Jsx'
+import BestSeller from '../Layout/BestSeller'
 import SocialMedia from '../Layout/SocialMedia'
 
 
