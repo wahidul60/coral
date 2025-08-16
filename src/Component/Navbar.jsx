@@ -6,15 +6,23 @@ import logo from '../assets/logo.png'
 import Image from './Image'
 import { CgProfile } from 'react-icons/cg'
 import { FaShoppingBag } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { increment } from '../Slices/breadcumb'
 
 
 const Navbar = () => {
+  let dispatch = useDispatch()
+  let handlebreadcumb =(value)=> {
+    dispatch(increment(value))
+  }
   return (
     <section>
       <Container>
+
         <Flex className='justify-between bg-white pt-8 pb-6 border-b border-black50'>
           <div className='1/3'><IoSearchOutline /></div>
-          <div className='1/3'><Image src={logo}/></div>
+          <div className='1/3'> <Link to="home"><Image src={logo}/></Link> </div>
           <div className='1/3'>
             <Flex className='justify-between gap-5'>
               <div className='flex items-center gap-2'>
@@ -27,6 +35,15 @@ const Navbar = () => {
               </div>
             </Flex>
           </div>
+        </Flex>
+        <Flex className='w-full list-none justify-between font-open text-[16px] pt-7 pb-20 hidden xl:flex'>
+          <li> <Link onClick={ ()=> handlebreadcumb ("Jewelry") } to="jewelry">Jewelry & Accessories</Link> </li>
+          <li><Link onClick={()=> handlebreadcumb("Clothing")} to="clothing">Clothing & Shoes</Link></li>
+          <li><Link onClick={()=> handlebreadcumb("Home Living")} to="home_living">Home & Living</Link></li>
+          <li><Link onClick={()=> handlebreadcumb("Wedding")} to="wedding">Wedding & Party</Link></li>
+          <li><Link onClick={()=> handlebreadcumb("Toys")} to="toys">Toys & Entertainment</Link></li>
+          <li><Link onClick={()=> handlebreadcumb("Art")} to = "art">Art & Collectibles</Link></li>
+          <li><Link onClick={()=> handlebreadcumb("Craft")} to = "craft">Craft Supplies & Tools</Link></li>
         </Flex>
         
       </Container>

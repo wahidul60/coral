@@ -15,7 +15,7 @@ const ExplorePart = () => {
         <section>
             <Container>
                 <Heading text='Explore new and popular styles' className='text-center pb-[35px]'/>
-                <Flex className='gap-6 w-full pb-[140px]'>
+                <Flex className='gap-6 w-full pb-[140px] '>
 
                     <div className='w-1/2'>
                         <div className='w-[613px] h-[613px] bg-black50'><Image src={card1}/></div>
