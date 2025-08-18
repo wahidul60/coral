@@ -23,7 +23,7 @@ const Allproduct = () => {
         </div>
       </Flex>
       <Flex className='gap-6 flex-wrap'>
-        <Card src={cardImage1} productName='Adicolor Classics Joggers' category='Dress' price='$63.85' />
+        <Card src={cardImage1} productName='Adicolor Classics ' category='Dress' price='$64.85' />
         <Card src={cardImage1} productName='Adicolor Classics Joggers' category='Dress' price='$63.85' />
         <Card src={cardImage1} productName='Adicolor Classics Joggers' category='Dress' price='$63.85' />
         <Card src={cardImage1} productName='Adicolor Classics Joggers' category='Dress' price='$63.85' />
