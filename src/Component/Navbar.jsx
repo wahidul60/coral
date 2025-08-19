@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from './Container'
 import Flex from './Flex'
 import { IoSearchOutline } from 'react-icons/io5'
@@ -9,16 +9,23 @@ import { FaShoppingBag } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { increment } from '../Slices/breadcumb'
+import { RxCross2 } from 'react-icons/rx'
 
 
 const Navbar = () => {
   let dispatch = useDispatch()
-  let card = useSelector((item)=>console.log(item.myCard))
+  let [show, setShow] = useState(false)
+
+  let card = useSelector((item) => item.myCard.value)
   let handlebreadcumb = (value) => {
     dispatch(increment(value))
   }
-  let handleCard =()=> {
-    console.log(handleCard)
+  let handleCard = () => {
+    setShow(!show)
+  }
+
+  let handleRemove = () => {
+    console.log("Clicked")
   }
   return (
     <section>
@@ -33,13 +40,45 @@ const Navbar = () => {
                 <CgProfile />
                 <p className='font-open text-sm'>Account</p>
               </div>
-              <div className='flex gap-2 relative cursor-pointer hover:scale-[1.09] duration-150' onClick={handleCard}  >
-                <FaShoppingBag />
-                <p className='font-open text-sm'>Shopping</p>
-                <div className='absolute w-[300px] h-auto '>
-                    {/* <Image src={}/> */}
-                </div>
+
+              <div className='relative ' onClick={handleCard}  >
+                <Flex className='hover:scale-[1.09] duration-150 gap-2 cursor-pointer'>
+                  <FaShoppingBag />
+                  <p className='font-open text-sm'>Shopping</p>
+                </Flex>
+                <div className='absolute w-[300px] h-auto  top-8 bg-[#f5f4f4] z-11 ' onClick={(e) => e.stopPropagation()}>
+
+                
+                  {show &&
+                  <>
+                    {
+                      card.length > 0 ?
+                    <>
+                      {
+                      card.map(item => (
+                        
+                        <>
+                          <Flex className='gap-3 items-center border border-[#e3e3e3]' >
+                            <Image className='w-[100px] h-auto m-2 border border-[#dfdfdf]' src={item.image} />
+                            <div className='m-2'>
+                              <h1 className='font-semibold'>{item.title.substring(0, 15)}...</h1>
+                              <h1>{item.price}</h1>
+                              <h1>quantity:{item.quantity}</h1>
+                            </div>
+                            <RxCross2 onClick={handleRemove} className='cursor-pointer hover:scale-[1.09] duration-150' />
+                          </Flex>
+                        </>
+                      ))
+                    }
+                    </> : <p className='text-center my-10'>Card is empty!</p>
+                    }
+                  </>
+                  }
+
+
+                    </div>
               </div>
+
             </Flex>
           </div>
         </Flex>
@@ -52,7 +91,6 @@ const Navbar = () => {
           <li className='hover:scale-[1.06] duration-150'><Link onClick={() => handlebreadcumb("Art")} to="art">Art & Collectibles</Link></li>
           <li className='hover:scale-[1.06] duration-150'><Link onClick={() => handlebreadcumb("Craft")} to="craft">Craft Supplies & Tools</Link></li>
         </Flex>
-
       </Container>
     </section>
   )
